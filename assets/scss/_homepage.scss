@@ -1,0 +1,415 @@
+#homepage {
+    .mainvisual {
+        // figure {
+        //     width: 100%;
+        //     height: auto;
+        //     img {
+        //         width: 100%;
+        //         height: 100%;
+        //         object-fit: cover;
+        //     }
+        // }
+        svg {
+            width: 35px;
+            height: 35px;
+            color: white;
+            opacity: .7;
+        }
+        .owl-prev {
+            position: absolute;
+            top: 40%;
+            left: 20px;
+        }
+        .owl-next {
+            position: absolute;
+            top: 40%;
+            right: 20px;
+        }
+        .owl-nav {
+            margin: 0;
+        }
+        .owl-dots {
+            position: absolute;
+            bottom: 15px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            span {
+                background: #869791;
+                outline: solid rgba(255, 255, 255, 0.8) 2px;
+            }
+            .active span {
+                background: white;
+            }
+        }
+        .owl-theme .owl-nav [class*=owl-]:hover{
+            color: unset;
+            text-decoration: none;
+            width: 35px;
+            height: 35px;
+            background-color: #DD3333;
+            border-radius: 25px;
+        }
+        button:focus {
+            outline: 0;
+        }
+    }
+    .banner-first {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        background-color: black;
+        h1 {
+            color: red;
+            font-weight: bold;
+            font-size: 26px;
+            text-align: center;
+        }
+    }
+    .banner-second {
+        height: 145px;
+        background-color: rgb(224, 233, 230);
+        display: flex;
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+        }
+        button {
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+                padding-right: 10px;
+            }
+        }
+    }
+    .our-product {
+        margin-top: 30px;
+        h2 {
+            text-align: center;
+            color: red;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .divine-banner {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .single-item {
+            figure {
+                width: 100%;
+                height: auto;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .text-content {
+                padding: 10px 10px 20px 10px;
+                text-align: center;
+                .name {
+                    font-weight: bold;
+                    font-size: 20px;
+                }
+                .price {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    .contact {
+        .container {
+            padding-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        &-name {
+            width: 35%;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        &-link {
+            width: 65%;
+            .button-group {
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+                gap: 50px;
+                button {
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                i {
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+    .introduction {
+        margin-top: 65px;
+        .banner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            h2 {
+                font-weight: 600;
+                text-align: center;
+                font-size: 26px;
+            }
+            h3 {
+                font-family: 900;
+                font-weight: bold;
+                text-align: center;
+                font-size: 28px;
+                color: red;
+            }
+        }
+        .content {
+            &-single {
+                &-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+                &-description {
+                    font-size: 20px;
+                    padding-bottom: 20px;
+                    .special {
+                        padding: 15px 0;
+                        text-align: center;
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+    .viewing {
+        margin-top: 30px;
+        .content {
+            padding-bottom: 20px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .news {
+        margin-top: 45px;
+        h2 {
+            text-align: center;
+            color: red;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .divine-banner {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .item {
+            figure {
+                width: 100%;
+                height: 215px;
+            }
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+            &-description {
+                padding-top: 20px;
+                h4 {
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: center;
+                    color: #555555;
+                    padding-bottom: 10px;
+                }
+                p {
+                    color: black;
+                    text-align: center;
+                }
+            }
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .owl-carousel .owl-theme {
+            position: relative;
+        }
+        .owl-prev {
+            opacity: .4;
+            position: absolute;
+            height: 100%;
+            width: 25px;
+            top: 0;
+            left: 0;
+            background-color: white;
+            margin: 0;
+            span {
+                font-size: 50px;
+            }
+            box-shadow: 5px 0 15px 0 rgba(0, 0, 0, 0.2);
+            transform: translateX(0) !important
+        }
+        .owl-next {
+            opacity: .4;
+            position: absolute;
+            height: 100%;
+            width: 25px;
+            top: 0;
+            right: 0;
+            background-color: white;
+            margin: 0;
+            span {
+                font-size: 50px;
+            }
+            box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.2);
+            transform: translateX(0) !important
+        }
+        .owl-dots {
+            display: none;
+        }
+        .owl-theme .owl-nav [class*=owl-]:hover{
+            color: unset;
+        }
+        button:focus {
+            outline: 0;
+        }
+        button:hover {
+            opacity: 1;
+        }
+    }
+    .our-customer {
+        margin-top: 45px;
+        padding-bottom: 50px;
+        h2 {
+            text-align: center;
+            color: red;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .divine-banner {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .item {
+            figure {
+                width: 100%;
+                height: 215px;
+            }
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .owl-carousel .owl-theme {
+            position: relative;
+        }
+        .owl-prev {
+            opacity: .4;
+            position: absolute;
+            height: 100%;
+            width: 25px;
+            top: 0;
+            left: 0;
+            background-color: white;
+            margin: 0;
+            span {
+                font-size: 50px;
+            }
+            box-shadow: 5px 0 15px 0 rgba(0, 0, 0, 0.2);
+            transform: translateX(0) !important
+        }
+        .owl-next {
+            opacity: .4;
+            position: absolute;
+            height: 100%;
+            width: 25px;
+            top: 0;
+            right: 0;
+            background-color: white;
+            margin: 0;
+            span {
+                font-size: 50px;
+            }
+            box-shadow: -5px 0 15px 0 rgba(0, 0, 0, 0.2);
+            transform: translateX(0) !important
+        }
+        .owl-dots {
+            display: none;
+        }
+        .owl-theme .owl-nav [class*=owl-]:hover{
+            color: unset;
+        }
+        button:focus {
+            outline: 0;
+        }
+        button:hover {
+            opacity: 1;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #homepage {
+        .mainvisual {
+            figure {
+                width: 100%;
+                max-height: unset;
+                height: auto;
+            }
+        }
+        .banner-first {
+            height: 70px;
+            h1 {
+                font-size: 20px;
+            }
+        }
+        .banner-second {
+            height: 180px;
+            .container {
+                gap: 0;
+                flex-direction: column;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            button {
+                margin-bottom: 10px;
+                height: calc((100% / 3) - 10px);
+            }
+            button:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .contact {
+            .container {
+                align-items: center;
+                flex-direction: column;
+            }
+            &-name {
+                width: 100%;
+                font-size: 25px;
+            }
+            &-link {
+                width: 100%;
+                .button-group {
+                    flex-direction: column;
+                    gap: 20px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+        .introduction {
+            margin-top: 30px;
+        } 
+    }
+}

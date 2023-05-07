@@ -1,0 +1,298 @@
+#header {
+    background-color: #2D2D2D;
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+.is-sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.5s ease-out;
+    min-height: 70px !important;
+}
+
+.header__logo {
+    figure {
+        max-width: 200px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.header__nav {
+    &-menu {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        li a {
+            color: white;
+            font-size: .9em;
+            text-decoration: none;
+        }
+        li a:hover {
+            color: black;
+        }
+    }
+
+    &-button {
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+.header__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    li {
+        list-style-type: none;
+        display: inline-block;
+        padding-left: 30px;
+        font-weight: bold;
+        color: #000000;
+        text-decoration: none;
+    }
+}
+
+.navbar-mobile{
+    display: none;
+}
+
+@keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    // PC Navbar disappear when in Mobile mode
+
+    .header__logo {
+        figure {
+            max-width: 200px;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .header__nav-button {
+        font-size: 22px;
+    }
+
+    .navbar-pc{
+        display: none;
+    }
+
+    // show  Mobile Navbar
+    .navbar-mobile{
+        display: block;
+    }
+
+    :root {
+        --slider-width: 447px;
+    }
+
+    // CSS items in navbar mobile
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        -webkit-tap-highlight-color: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .navbar {
+        min-height: 80px;
+        position: relative;
+        max-width: 750px;
+        height: 100%;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+    .menu {
+        z-index: 1;
+
+        // make a checkbox to check when click
+        .checkbox {
+            position: absolute;
+            top: 22px;
+            right: 4px;
+            width: 42px;
+            height: 35px;
+            border-radius: 4px;
+            z-index: 2;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+    .slider-menu {
+        .button a {
+            background-color: #3a89cd;
+            padding: 5px 0 !important;
+            text-align: center;
+            width: 50% !important;
+            @media only screen and (max-width: 991px) {
+                width: 25% !important;
+            }
+            @media only screen and (max-width: 850px) {
+                width: 50% !important;
+            }
+            @media only screen and (max-width: 477px) {
+                padding: 10px 15px !important;
+            }
+        }
+        .button a:hover{
+            color: black !important;
+        }
+    }
+    
+    // when checkbox is clicked, show hamberger menu
+    .menu .checkbox:checked + .hamberger > div:nth-child(1) {
+        transform: rotate3d(0, 0, 1, -45deg);
+    }
+    .menu .checkbox:checked + .hamberger > div:nth-child(2) {
+        opacity: 0;
+    }
+    .menu .checkbox:checked + .hamberger > div:nth-child(3) {
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+    .menu .hamberger {
+        position: absolute;
+        top: 22px;
+        right: 4px;
+        z-index: 1;
+        width: 42px;
+        height: 35px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu .hamberger > div {
+        flex: none;
+        margin: 4px 0 0 0;
+        width: 22px;
+        height: 3px;
+        border: none;
+        border-radius: 1px;
+        background: #ffffff;
+        transition: all 300ms ease;
+        transform-origin: 20.5px;
+    }
+    .menu .hamberger > div:nth-child(2) {
+        height: 2.5px;
+    }
+    .menu .hamberger > div:nth-child(3) {
+        margin: 4.5px 0 0 0;
+    }
+
+    .back-disable {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        opacity: 0;
+        background: rgba(0, 0, 0, 0.8);
+        transition: opacity 150ms ease;
+        z-index: 0;
+    }
+
+    .checkbox:checked ~ .back-disable {
+        visibility: visible;
+        opacity: 1;
+        scroll-behavior: disabled;
+    }
+
+    .menu .slider {
+        position: fixed;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+        width: var(--slider-width);
+        max-width: 100%;
+        height: 100vh;
+        background: #000000;
+        transform: translate3d(25vw, 0, 0);
+        opacity: 0;
+        transition: transform 300ms ease, opacity 150ms linear;
+        pointer-events: none;
+    }
+    .menu .slider .slider-menu {
+        max-width: var(--slider-width);
+        max-height: 100%;
+        background: #000000;
+        padding: 38px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .menu .slider .slider-menu a {
+        width: 100%;
+        padding: 0 0 25px 0;
+    }
+    .menu .slider .slider-menu li {
+        a {
+            color: white;
+        }
+        a:hover {
+            color: #FCAF3B;
+            text-decoration: none;
+        }
+        display: flex;
+        flex-direction: column;
+        font-size: 25px;
+        line-height: 36px;  
+        font-weight: 600;
+    }
+
+    .checkbox:checked ~ .slider {
+        transform: translate3d(0px, 0, 0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    @media (min-width: 447px) and (max-width: 1024px) and (orientation: landscape) {
+        :root {
+            --slider-width: 100vw;
+        }
+        .menu .slider .slider-menu {
+            overflow: hidden;
+        }
+        .checkbox:checked ~ .slider .slider-menu {
+            overflow-y: auto;
+        }
+    }
+}
+
+@media only screen and (max-width: 477px) {
+    :root {
+        --slider-width: 100vw;
+    }
+    .menu .slider .slider-menu .slider-premium {
+        font-size: 24px;
+        line-height: 30px;
+    }
+}
