@@ -750,6 +750,48 @@ h1 {
 #single-product {
   padding-top: 30px;
 }
+#single-post .post-content {
+  padding-top: 30px;
+}
+#single-post .post-content .post-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+#single-post .post-content .post-create {
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(76, 76, 76);
+}
+#single-post .post-content img {
+  margin-bottom: 16px;
+}
+#single-post .post-share {
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#single-post .post-share .norm_row {
+  width: 135px !important;
+}
+#single-post .post-share figure {
+  width: 105px;
+  height: auto;
+}
+#single-post .post-share figure img {
+  width: 100%;
+}
+#single-post .post-share-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 991px) {
+  .col-lg-3 {
+    display: none;
+  }
+}
 #footer {
   margin-top: 70px;
   background: url("../../assets/images/footer_bg.jpg") no-repeat;
