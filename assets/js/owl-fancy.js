@@ -35,9 +35,29 @@ $('.owl-three').owlCarousel({
         }
     }
 })
+$('.owl-four').owlCarousel({
+    loop:true,
+    margin:30,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+    }
+})
 
 // fancy
 Fancybox.bind('[data-fancybox="gallery"]', {
     //
     hideScrollbar: false,
 }); 
+
+//ruby slide
+(function($) {
+    $('.rs01').rubyslider({
+        "fx": "rectRun",
+        "speed": 800,
+        "width": 570,
+        "height": 262
+    })
+})(jQuery)
