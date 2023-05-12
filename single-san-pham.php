@@ -24,8 +24,9 @@
                     </div>
                     <div class="col-lg">
                         <div class="info-content">
-                            <div class="bread">TRANG CHỦ / SẢN PHẨM / XE TOYOTA</div>
+                            <?php include 'breadcrumb.php';?>
                             <h2 class="title"><?php echo get_the_title(); ?></h2>
+                            <div class="is-divider small"></div>
                             <p><bdi><?php echo ($single_product_info['gia']); ?></bdi></p>
                             <div classs="description">
                                 <?php echo ($single_product_info['thong_tin_them']); ?>

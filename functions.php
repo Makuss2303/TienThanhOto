@@ -70,12 +70,33 @@ if (!function_exists('tienthanhtheme_setup_style')) {
     }
     add_action('wp_enqueue_scripts', 'tienthanhtheme_setup_style' );
 }
+
+// Pagination
+function pagination_bar($my_query) {
+    // global $wp_query;
+    $total_pages = $my_query->max_num_pages;
+    $current_page = max(1, get_query_var('paged'));
+    if ($total_pages > 1){
+        $_pagination_bar = [
+            'base' => get_pagenum_link(1),
+            'format' => 'page/%#%',
+            'current' => $current_page,
+            'total' => $total_pages, 
+        ];
+        if ($_pagination_bar['current'] > 1) {
+            echo '<a class="pagination_bar__first__last page-numbers" href="'.$_pagination_bar['base'].'"> << </a>';
+        }
+        echo paginate_links(array(
+            'base' => get_pagenum_link(1) . '%_%',
+            'format' => 'page/%#%',
+            'current' => $current_page,
+            'total' => $total_pages,
+            'prev_text' => '<',
+            'next_text' => '>',
+            ));
+        if ($_pagination_bar['current'] < $_pagination_bar['total'] ) {
+            echo '<a class="pagination_bar__first__last page-numbers" href="'.$_pagination_bar['base'].'page/'.($_pagination_bar['total']).'"> >> </a>';
+        }
+    }
+}
 ?>
-
-
-
-
-
-
-
-
