@@ -29,9 +29,9 @@
         </div>
         <div class="banner-second"> 
             <div class="container">
-                <button type="button" class="btn btn-danger"><i class="fa-regular fa-heart"></i>TƯ VẤN TRẢ GÓP</button>
-                <button type="button" class="btn btn-danger"><i class="fa-regular fa-envelope"></i></i>ĐĂNG KÝ LÁI THỬ</button>
-                <button type="button" class="btn btn-danger"><i class="fa-solid fa-phone"></i>HOTLINE 0911 422 892</button>
+                <a href="https://www.google.com/" target="_blank" class="btn btn-danger"><i class="fa-regular fa-heart"></i>TƯ VẤN TRẢ GÓP</a>
+                <a href="https://www.google.com/" target="_blank" class="btn btn-danger"><i class="fa-regular fa-envelope"></i></i>ĐĂNG KÝ LÁI THỬ</button>
+                <a href="https://www.google.com/" target="_blank" class="btn btn-danger"><i class="fa-solid fa-phone"></i>HOTLINE 0911 422 892</a>
             </div>   
         </div>
         <div class="our-product">
@@ -40,62 +40,41 @@
                 <figure class="divine-banner">
                     <img src="<?php echo get_template_directory_uri() ?>./assets/images/divider.png" alt="divider">
                 </figure>
+                <?php
+                    $args = array(
+                        'post_type' => 'san-pham',
+                        'posts_per_page' => 6,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'post_status' => 'publish',
+                        'ignore_sticky_posts' => 1,
+                    );
+                    $get_post = new WP_Query($args);
+                ?>
                 <div class="list-item">
                     <div class="row">
+                        <?php 
+                        if ( $get_post-> have_posts() ) :
+                        while ( $get_post->have_posts() ) : $get_post->the_post(); 
+                            $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                            $link_post = $post->guid;
+                        ?>
                         <div class="single-item col-lg-4">
-                            <figure>
-                                <img src="./assets/images/product/alphard.-14.png" alt="">
-                            </figure>
+                            <a href="<?php echo $link_post; ?>" target="_blank">
+                                <figure><img src="<?php echo $feat_image; ?>" alt="san-pham"></figure>
+                            </a>
                             <div class="text-content">
-                                <div class="name">Toyota Alphard</div>
-                                <div class="price">4.280.000.000₫</div>
+                                <div class="name"><?php echo get_the_title(); ?></div>
+                                <?php $variable = get_field('thong_tin_san_pham', $post->ID); ?>
+                                <div class="price"><?php echo $variable['gia'] ? $variable['gia'] : '-'; ?></div>
                             </div>
                         </div>
-                        <div class="single-item col-lg-4">
-                            <figure>
-                                <img src="./assets/images/product/alphard.-14.png" alt="">
-                            </figure>
-                            <div class="text-content">
-                                <div class="name">Toyota Alphard</div>
-                                <div class="price">4.280.000.000₫</div>
-                            </div>
-                        </div>
-                        <div class="single-item col-lg-4">
-                            <figure>
-                                <img src="./assets/images/product/alphard.-14.png" alt="">
-                            </figure>
-                            <div class="text-content">
-                                <div class="name">Toyota Alphard</div>
-                                <div class="price">4.280.000.000₫</div>
-                            </div>
-                        </div>
-                        <div class="single-item col-lg-4">
-                            <figure>
-                                <img src="./assets/images/product/alphard.-14.png" alt="">
-                            </figure>
-                            <div class="text-content">
-                                <div class="name">Toyota Alphard</div>
-                                <div class="price">4.280.000.000₫</div>
-                            </div>
-                        </div>
-                        <div class="single-item col-lg-4">
-                            <figure>
-                                <img src="./assets/images/product/alphard.-14.png" alt="">
-                            </figure>
-                            <div class="text-content">
-                                <div class="name">Toyota Alphard</div>
-                                <div class="price">4.280.000.000₫</div>
-                            </div>
-                        </div>
-                        <div class="single-item col-lg-4">
-                            <figure>
-                                <img src="./assets/images/product/alphard.-14.png" alt="">
-                            </figure>
-                            <div class="text-content">
-                                <div class="name">Toyota Alphard</div>
-                                <div class="price">4.280.000.000₫</div>
-                            </div>
-                        </div>
+                        <?php
+                        endwhile; ?>
+                    <?php endif; wp_reset_postdata(); ?>
+                    </div>
+                    <div class="read-more">
+                        <a href="<?php echo get_post_type_archive_link('san-pham');?>" class="btn btn-danger">Xem thêm...</a>
                     </div>
                 </div>
             </div>
@@ -105,9 +84,9 @@
                 <h3 class="contact-name">MUA XE TOYOTA GIÁ TỐT NHẤT GỌI NGAY Mr. THÀNH</h3>
                 <div class="contact-link">
                     <div class="button-group">
-                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-phone"></i>0911 422 892</button>
-                        <button type="button" class="btn btn-danger"><i class="fa-regular fa-envelope"></i>NHẬN BÁO GIÁ</button>
-                        <button type="button" class="btn btn-danger"><i class="fa-regular fa-clock"></i>ĐẶT LỊCH HẸN</button>
+                        <a href="https://www.google.com/" target="_blank" class="btn btn-danger"><i class="fa-solid fa-phone"></i>0911 422 892</a>
+                        <a href="https://www.google.com/" target="_blank" class="btn btn-danger"><i class="fa-regular fa-envelope"></i>NHẬN BÁO GIÁ</a>
+                        <a href="https://www.google.com/" target="_blank" class="btn btn-danger"><i class="fa-regular fa-clock"></i>ĐẶT LỊCH HẸN</a>
                     </div>
                 </div>
             </div>   

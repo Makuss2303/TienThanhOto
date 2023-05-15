@@ -1,0 +1,154 @@
+#contact {
+    padding-top: 30px;
+    color: #555;
+    h2 {
+        font-weight: bold;
+        margin-bottom: 13px;
+    }
+    .form-title {
+        margin-bottom: 35px;
+    }
+    .content {
+        h2 {
+            font-size: 26px;
+        }
+        p {
+            margin-bottom: 21px;
+        }
+        figure {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .contact-form {
+            padding-top: 30px;
+        }
+    }
+    .contact-form {
+        .row {
+            margin-bottom: 30px;
+        }
+        input[type=text], input[type=tel], select, textarea {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+            box-sizing: border-box;
+            color: #333;
+            font-size: .97em;
+            height: 2.507em;
+            max-width: 100%;
+            padding: 0 0.75em;
+            transition: color .3s,border .3s,background .3s,opacity .3s;
+            vertical-align: middle;
+            width: 100%;
+        }
+        input[type=checkbox], input[type=radio] {
+            display: inline;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input[type=submit] {
+            font-weight: bold;
+        }
+        p {
+            margin-bottom:  0 !important;
+        }
+        label {
+            margin-bottom: 0;
+        }
+        .col-sm-3 {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .map {
+        height: 450px;
+        padding-top: 30px;
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+#driving-test {
+    padding-top: 30px;
+    color: #555;
+    h2 {
+        font-weight: bold;
+        margin-bottom: 13px;
+    }
+    .content {
+        display: flex;
+        gap: 30px;
+    }
+    figure {
+        width: 50%;
+    }
+    .wp-block-contact-form-7-contact-form-selector {
+        width: 50%;
+        padding: 20px 20px 20px 20px;
+        box-shadow: 0 3px 6px -4px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    }
+    .contact-form {
+        .row {
+            margin-bottom: 15px;
+        }
+        input[type=text], input[type=tel], select, textarea {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+            box-sizing: border-box;
+            color: #333;
+            font-size: .97em;
+            height: 2.507em;
+            max-width: 100%;
+            padding: 0 0.75em;
+            transition: color .3s,border .3s,background .3s,opacity .3s;
+            vertical-align: middle;
+            width: 100%;
+        }
+        input[type=checkbox], input[type=radio] {
+            display: inline;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input[type=submit] {
+            font-weight: bold;
+        }
+        p {
+            margin-bottom:  0;
+        }
+        label {
+            margin-bottom: 0;
+        }
+        .col-sm-3 {
+            display: flex;
+            align-items: center;
+        }
+        .text-describe {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #driving-test {
+        .content {
+            flex-wrap: wrap;
+        }
+        figure {
+            width: 100% !important;
+        }
+        .wp-block-contact-form-7-contact-form-selector {
+            width: 100% !important;
+        }
+    }
+}

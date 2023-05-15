@@ -71,6 +71,9 @@ if (!function_exists('tienthanhtheme_setup_style')) {
     add_action('wp_enqueue_scripts', 'tienthanhtheme_setup_style' );
 }
 
+// excerpt length setting
+function my_excerpt_length($length){ return 30; } add_filter('excerpt_length', 'my_excerpt_length');
+
 // Pagination
 function pagination_bar($my_query) {
     // global $wp_query;
@@ -83,20 +86,32 @@ function pagination_bar($my_query) {
             'current' => $current_page,
             'total' => $total_pages, 
         ];
-        if ($_pagination_bar['current'] > 1) {
-            echo '<a class="pagination_bar__first__last page-numbers" href="'.$_pagination_bar['base'].'"> << </a>';
-        }
-        echo paginate_links(array(
-            'base' => get_pagenum_link(1) . '%_%',
-            'format' => 'page/%#%',
-            'current' => $current_page,
-            'total' => $total_pages,
-            'prev_text' => '<',
-            'next_text' => '>',
-            ));
-        if ($_pagination_bar['current'] < $_pagination_bar['total'] ) {
-            echo '<a class="pagination_bar__first__last page-numbers" href="'.$_pagination_bar['base'].'page/'.($_pagination_bar['total']).'"> >> </a>';
-        }
+?>
+        <nav class="pagination_bar">
+            <div id="pag-cover">
+                <?php
+                if ($_pagination_bar['current'] > 1) {
+                    echo '<a class="pagination_bar__first__last page-numbers" href="'.$_pagination_bar['base'].'"><i class="fa-solid fa-angles-left"></i></a>';
+                } ?>
+                <?php
+                    echo paginate_links(array(
+                    'base' => get_pagenum_link(1) . '%_%',
+                    'format' => 'page/%#%',
+                    'current' => $current_page,
+                    'total' => $total_pages,
+                    'prev_text' => '<div class="td arr-cover"><div class="arrow" id="l-arrow"><i class="fas fa-chevron-circle-left"></i></div></div>',
+                    'next_text' => '<div class="td arr-cover"><div class="arrow" id="r-arrow"><i class="fas fa-chevron-circle-right"></i></div></div>',
+                    ));
+                ?>
+                <?php
+                if ($_pagination_bar['current'] < $_pagination_bar['total'] ) {
+                    echo '<a class="pagination_bar__first__last page-numbers" href="'.$_pagination_bar['base'].'page/'.($_pagination_bar['total']).'"><i class="fa-solid fa-angles-right"></i></a>';
+                }?>
+            </div>
+        </nav>
+        <?php
     }
 }
+
 ?>
+

@@ -392,14 +392,15 @@ h1 {
   justify-content: center;
   gap: 100px;
 }
-#homepage .banner-second button {
+#homepage .banner-second a {
   font-size: 16px;
   font-weight: bold;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#homepage .banner-second button i {
+#homepage .banner-second a i {
   padding-right: 10px;
 }
 #homepage .our-product {
@@ -435,8 +436,16 @@ h1 {
 #homepage .our-product .single-item .text-content .price {
   font-weight: bold;
 }
+#homepage .our-product .read-more {
+  text-align: center;
+}
+#homepage .our-product .read-more a {
+  color: white;
+}
+#homepage .contact {
+  margin-top: 50px;
+}
 #homepage .contact .container {
-  padding-top: 15px;
   display: flex;
   justify-content: center;
 }
@@ -456,8 +465,9 @@ h1 {
   align-items: center;
   gap: 50px;
 }
-#homepage .contact-link .button-group button {
+#homepage .contact-link .button-group a {
   font-size: 16px;
+  color: white;
   font-weight: bold;
 }
 #homepage .contact-link .button-group i {
@@ -711,9 +721,11 @@ h1 {
 }
 #about {
   padding-top: 30px;
+  color: #555;
 }
 #about h2 {
   font-weight: bold;
+  margin-bottom: 13px;
 }
 #about .content figure {
   width: 100%;
@@ -726,6 +738,152 @@ h1 {
   object-fit: cover;
 }
 
+#contact {
+  padding-top: 30px;
+  color: #555;
+}
+#contact h2 {
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+#contact .form-title {
+  margin-bottom: 35px;
+}
+#contact .content h2 {
+  font-size: 26px;
+}
+#contact .content p {
+  margin-bottom: 21px;
+}
+#contact .content figure {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+#contact .content figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#contact .content .contact-form {
+  padding-top: 30px;
+}
+#contact .contact-form .row {
+  margin-bottom: 30px;
+}
+#contact .contact-form input[type=text], #contact .contact-form input[type=tel], #contact .contact-form select, #contact .contact-form textarea {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  color: #333;
+  font-size: 0.97em;
+  height: 2.507em;
+  max-width: 100%;
+  padding: 0 0.75em;
+  transition: color 0.3s, border 0.3s, background 0.3s, opacity 0.3s;
+  vertical-align: middle;
+  width: 100%;
+}
+#contact .contact-form input[type=checkbox], #contact .contact-form input[type=radio] {
+  display: inline;
+  font-size: 16px;
+  margin-right: 10px;
+}
+#contact .contact-form input[type=submit] {
+  font-weight: bold;
+}
+#contact .contact-form p {
+  margin-bottom: 0 !important;
+}
+#contact .contact-form label {
+  margin-bottom: 0;
+}
+#contact .contact-form .col-sm-3 {
+  display: flex;
+  align-items: center;
+}
+#contact .map {
+  height: 450px;
+  padding-top: 30px;
+}
+#contact .map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#driving-test {
+  padding-top: 30px;
+  color: #555;
+}
+#driving-test h2 {
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+#driving-test .content {
+  display: flex;
+  gap: 30px;
+}
+#driving-test figure {
+  width: 50%;
+}
+#driving-test .wp-block-contact-form-7-contact-form-selector {
+  width: 50%;
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+#driving-test .contact-form .row {
+  margin-bottom: 15px;
+}
+#driving-test .contact-form input[type=text], #driving-test .contact-form input[type=tel], #driving-test .contact-form select, #driving-test .contact-form textarea {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  color: #333;
+  font-size: 0.97em;
+  height: 2.507em;
+  max-width: 100%;
+  padding: 0 0.75em;
+  transition: color 0.3s, border 0.3s, background 0.3s, opacity 0.3s;
+  vertical-align: middle;
+  width: 100%;
+}
+#driving-test .contact-form input[type=checkbox], #driving-test .contact-form input[type=radio] {
+  display: inline;
+  font-size: 16px;
+  margin-right: 10px;
+}
+#driving-test .contact-form input[type=submit] {
+  font-weight: bold;
+}
+#driving-test .contact-form p {
+  margin-bottom: 0;
+}
+#driving-test .contact-form label {
+  margin-bottom: 0;
+}
+#driving-test .contact-form .col-sm-3 {
+  display: flex;
+  align-items: center;
+}
+#driving-test .contact-form .text-describe {
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 991px) {
+  #driving-test .content {
+    flex-wrap: wrap;
+  }
+  #driving-test figure {
+    width: 100% !important;
+  }
+  #driving-test .wp-block-contact-form-7-contact-form-selector {
+    width: 100% !important;
+  }
+}
 #products-list .container {
   padding-top: 20px;
 }
@@ -848,6 +1006,89 @@ h1 {
     display: none;
   }
 }
+#news .container {
+  padding-top: 20px;
+}
+#news .list-item {
+  padding-top: 30px;
+}
+#news .single-item {
+  color: rgb(76, 76, 76);
+}
+#news .single-item:hover {
+  text-decoration: none !important;
+}
+#news .single-item:hover .badge-inner {
+  color: #fff;
+  background-color: #dd3333;
+}
+#news .single-item figure {
+  width: 100%;
+  height: 171px;
+}
+#news .single-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#news .single-item .text-content {
+  padding: 10px 10px 20px 10px;
+  text-align: center;
+}
+#news .single-item .text-content .name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #555 !important;
+}
+#news .is-divider {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  height: 2px;
+  margin: 0.5em auto;
+  max-width: 30px;
+  width: 100%;
+  text-align: center;
+}
+#news .badge {
+  position: absolute !important;
+  left: 0;
+  top: 10px;
+}
+#news .badge-inner {
+  color: #dd3333;
+  background-color: #fff;
+  border: 2px solid #dd3333;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#news .badge-inner .post-date-day {
+  font-size: 16px;
+}
+#news .badge-inner .post-date-month {
+  font-size: 12px;
+}
+#news .badge-inneryear {
+  position: absolute;
+  right: 15px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  padding: 7px 0;
+  background: #dd3333;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+@media only screen and (max-width: 991px) {
+  #news .single-item figure {
+    width: 100%;
+    height: auto;
+  }
+}
 #footer {
   margin-top: 70px;
   background: url("../../assets/images/footer_bg.jpg") no-repeat;
@@ -933,6 +1174,40 @@ h1 {
 .breadcrumbs-archive .current-item {
   color: #111;
   font-weight: bold;
+}
+
+.pagination_bar {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+.pagination_bar #pag-cover {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  min-width: 200px;
+  color: #fff;
+  line-height: 1;
+  background-color: rgb(45, 45, 45);
+  border-radius: 4px;
+  user-select: none;
+}
+.pagination_bar .page-numbers {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  justify-content: center;
+}
+.pagination_bar .current {
+  background-color: rgb(220, 53, 69);
+}
+.pagination_bar a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+.pagination_bar a:hover {
+  background-color: rgb(228, 103, 116);
 }
 
 .fancybox__footer {
