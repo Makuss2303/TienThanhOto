@@ -35,7 +35,7 @@
             text-decoration: none;
         }
         li a:hover {
-            color: black;
+            color: #FCAF3B;
         }
     }
 
@@ -87,7 +87,7 @@
     }
 
     .header__nav-button {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .navbar-pc{
@@ -242,7 +242,7 @@
         max-width: var(--slider-width);
         max-height: 100%;
         background: #000000;
-        padding: 38px;
+        padding: 58px 38px 38px 38px;
         display: flex;
         flex-direction: column;
         
@@ -262,8 +262,8 @@
         }
         display: flex;
         flex-direction: column;
-        font-size: 25px;
-        line-height: 36px;  
+        font-size: 20px;
+        line-height: 30px;  
         font-weight: 600;
     }
 
@@ -286,12 +286,27 @@
     }
 }
 
-@media only screen and (max-width: 477px) {
+@media only screen and (max-width: 500px) {
+    #header {
+        min-height: 70px !important;
+    }
     :root {
         --slider-width: 100vw;
     }
     .menu .slider .slider-menu .slider-premium {
         font-size: 24px;
         line-height: 30px;
+    }
+    .navbar {
+        min-height: 50px;
+    }
+    .menu .hamberger {
+        top: 5px;
+    }
+    .menu .checkbox {
+        top: 5px;
+    }
+    .header__logo figure img {
+        width: 85%;
     }
 }

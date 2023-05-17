@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="footer" style="background: url('<?php echo get_theme_mod('footer_background') ? get_theme_mod('footer_background') : '';?>') no-repeat">
         <div class="bg-overlay">
             <div class="footer container">
                 <div class="row">
@@ -6,7 +6,7 @@
                         <h3 class="footer-title">PHÒNG KINH DOANH</h3>
                         <h3 class="footer-title">TOYOTA BIÊN HÒA - CN BÌNH DƯƠNG</h3>
                         <div class="footer-content">
-                            <img src="./assets/images/footer-pic.jpg" alt="footer-pic">
+                            <img src="<?php echo get_theme_mod('footer_image') ? get_theme_mod('footer_image') : '';?>" alt="footer-pic">
                         </div>
                     </div>
                     <div class="item col-lg">

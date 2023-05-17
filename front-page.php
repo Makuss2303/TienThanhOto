@@ -3,7 +3,7 @@
     $mainvisual = get_field('mainvisual');
     $branch = get_field('branch');
     $view = get_field('viewing');
-
+    $customer = get_field('khach_hang');
 ?>
 <?php get_header(); ?>
     <main id="homepage">
@@ -14,7 +14,7 @@
                     foreach ($mainvisual as $items_name) {
                 ?>
                         <a class="item" href="#">
-                            <img src="<?php echo($items_name['image']['url']);?>" alt="<?php echo($items_name['image']['alt']);?>">
+                            <img src="<?php echo($items_name['image']['url']);?>" alt="<?php if (!empty($items_name['image']['alt'])) echo($items_name['image']['alt']);?>">
                         </a>
                 <?php
                     }
@@ -160,61 +160,41 @@
                 <figure class="divine-banner">
                     <img src="./assets/images/divider.png" alt="">
                 </figure>
+                <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => -1,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'post_status' => 'publish',
+                        'category_name' => 'tin-tuc',
+                    );
+                    $get_post = new WP_Query($args);
+                    if ( $get_post-> have_posts() ) :
+                ?>
                 <div class="owl-two owl-carousel owl-theme">
-                    <a class="item" href="https://www.google.com.vn/" target="_blank">
-                        <figure>
-                            <img src="./assets/images/news/news-1.jpg" alt="news-1">
-                        </figure>
-                        <div class="item-description">
-                            <h4>So sánh Toyota Corolla Altis Và Honda Civic – 2 đối thủ trong phân khúc Hạng C</h4>
-                            <p>Toyota Corolla Altis và Honda Civic là 2 đối thủ nặng ký trong dòng xe phân khúc hạng C Thông số kỹ thuật Honda Civic và [...]</p>
-                        </div>
-                    </a>
-                    <a class="item" href="https://www.google.com.vn/" target="_blank">
-                        <figure>
-                            <img src="./assets/images/news/news-2.jpg" alt="news-2">
-                        </figure>
-                        <div class="item-description">
-                            <h4>Toyota Việt Nam công bố doanh số bán hàng tháng 8/2022</h4>
-                            <p>Công ty Ô tô Toyota Việt Nam công bố tổng doanh số bán hàng trong tháng 8/2022 đạt 6.796 xe (bao gồm xe Lexus), tăng 195% [...]</p>
-                        </div>
-                    </a>
-                    <a class="item" href="https://www.google.com.vn/" target="_blank">
-                        <figure>
-                            <img src="./assets/images/news/news-3.jpg" alt="news-3">
-                        </figure>
-                        <div class="item-description">
-                            <h4>Chương trình ưu đãi từ hệ thống đại lý Toyota trên toàn quốc cho khách hàng mua xe Vios tháng 9/2022</h4>
-                            <p>Thay lời tri ân tới những khách hàng đã góp phần đưa mẫu xe Vios trở thành chiếc xe quốc dân của Toyota tại Việt Nam, [...]</p>
-                        </div>
-                    </a>
-                    <a class="item" href="https://www.google.com.vn/" target="_blank">
-                        <figure>
-                            <img src="./assets/images/news/news-1.jpg" alt="news-1">
-                        </figure>
-                        <div class="item-description">
-                            <h4>So sánh Toyota Corolla Altis Và Honda Civic – 2 đối thủ trong phân khúc Hạng C</h4>
-                            <p>Toyota Corolla Altis và Honda Civic là 2 đối thủ nặng ký trong dòng xe phân khúc hạng C Thông số kỹ thuật Honda Civic và [...]</p>
-                        </div>
-                    </a>
-                    <a class="item" href="https://www.google.com.vn/" target="_blank">
-                        <figure>
-                            <img src="./assets/images/news/news-2.jpg" alt="news-2">
-                        </figure>
-                        <div class="item-description">
-                            <h4>Toyota Việt Nam công bố doanh số bán hàng tháng 8/2022</h4>
-                            <p>Công ty Ô tô Toyota Việt Nam công bố tổng doanh số bán hàng trong tháng 8/2022 đạt 6.796 xe (bao gồm xe Lexus), tăng 195% [...]</p>
-                        </div>
-                    </a>
-                    <a class="item" href="https://www.google.com.vn/" target="_blank">
-                        <figure>
-                            <img src="./assets/images/news/news-3.jpg" alt="news-3">
-                        </figure>
-                        <div class="item-description">
-                            <h4>Chương trình ưu đãi từ hệ thống đại lý Toyota trên toàn quốc cho khách hàng mua xe Vios tháng 9/2022</h4>
-                            <p>Thay lời tri ân tới những khách hàng đã góp phần đưa mẫu xe Vios trở thành chiếc xe quốc dân của Toyota tại Việt Nam, [...]</p>
-                        </div>
-                    </a>
+                    <?php 
+                        while ( $get_post->have_posts() ) : $get_post->the_post();
+                            $feat_image_news = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+                    ?>                
+                        <a class="item" href="<?php echo get_the_permalink();?>" target="_blank">
+                            <div class="badge absolute top post-date badge-outline">
+                                <div class="badge-inner">
+                                    <span class="post-date-day"><?php echo get_the_date('d');?></span>
+                                    <span class="post-date-month is-xsmall">Th<?php echo get_the_date('m');?></span>
+                                </div>
+                            </div>
+                            <div class="badge-inneryear"><?php echo get_the_date('Y');?></div>
+                            <figure>
+                                <img src="<?php echo $feat_image_news;?>" alt="news">
+                            </figure>
+                            <div class="item-description">
+                                <h4><?php echo get_the_title();?></h4>
+                                <p><?php echo get_the_excerpt();?></p>
+                            </div>
+                        </a>
+                    <?php endwhile; ?>
+                    <?php endif; wp_reset_postdata(); ?>
                 </div>
             </div>
         </div>
@@ -225,72 +205,25 @@
                     <img src="./assets/images/divider.png" alt="">
                 </figure>
                 <div class="owl-three owl-carousel owl-theme">
-                    <div class="item">
-                        <a 
-                        data-src="./assets/images/customer/customer-1.jpg" 
-                        data-fancybox="gallery"
-                        data-caption="Khách hàng"
-                        >
-                            <figure>
-                                <img src="./assets/images/customer/customer-1.jpg" alt="customer-1">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a 
-                        data-src="./assets/images/customer/customer-2.jpg" 
-                        data-fancybox="gallery"
-                        data-caption="Khách hàng"
-                        >
-                            <figure>
-                                <img src="./assets/images/customer/customer-2.jpg" alt="customer-2">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a 
-                        data-src="./assets/images/customer/customer-3.jpg" 
-                        data-fancybox="gallery"
-                        data-caption="Khách hàng"
-                        >
-                            <figure>
-                                <img src="./assets/images/customer/customer-3.jpg" alt="customer-3">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a 
-                        data-src="./assets/images/customer/customer-1.jpg" 
-                        data-fancybox="gallery"
-                        data-caption="Khách hàng"
-                        >
-                            <figure>
-                                <img src="./assets/images/customer/customer-1.jpg" alt="customer-1">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a 
-                        data-src="./assets/images/customer/customer-2.jpg" 
-                        data-fancybox="gallery"
-                        data-caption="Khách hàng"
-                        >
-                            <figure>
-                                <img src="./assets/images/customer/customer-2.jpg" alt="customer-2">
-                            </figure>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a 
-                        data-src="./assets/images/customer/customer-3.jpg" 
-                        data-fancybox="gallery"
-                        data-caption="Khách hàng"
-                        >
-                            <figure>
-                                <img src="./assets/images/customer/customer-3.jpg" alt="customer-3">
-                            </figure>
-                        </a>
-                    </div>
+                    <?php
+                    if (!empty($customer)) {
+                        foreach ($customer as $items_name) {
+                    ?>
+                            <div class="item">
+                                <a 
+                                data-src="<?php echo ($items_name['image']['url'] ? $items_name['image']['url'] : '');?>" 
+                                data-fancybox="gallery"
+                                data-caption="Khách hàng"
+                                >
+                                    <figure>
+                                        <img src="<?php echo ($items_name['image']['url'] ? $items_name['image']['url'] : ''); ?>" alt="<?php echo ($items_name['image']['alt'] ? $items_name['image']['alt'] : ''); ?>">
+                                    </figure>
+                                </a>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>

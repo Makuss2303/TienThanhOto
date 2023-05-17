@@ -17,7 +17,7 @@ $('.owl-two').owlCarousel({
         0:{
             items:1
         },
-        960:{
+        992:{
             items:3
         }
     }
@@ -28,9 +28,9 @@ $('.owl-three').owlCarousel({
     nav:true,
     responsive:{
         0:{
-            items:1
+            items:2
         },
-        960:{
+        992:{
             items:4
         }
     }

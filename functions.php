@@ -14,10 +14,6 @@ if (!function_exists('tienthanhtheme_setup')) {
             'quote',
             'link'
         ));
-        // Them title-tag
-        add_theme_support('title-tag');
-        // Them custom background
-        add_theme_support('custom-background');
         //Them Menu
         register_nav_menus(
             array(
@@ -71,8 +67,52 @@ if (!function_exists('tienthanhtheme_setup_style')) {
     add_action('wp_enqueue_scripts', 'tienthanhtheme_setup_style' );
 }
 
+// Own Customize function
+function mytheme($wp_customize) {
+	/*  
+        Footer
+    */
+	$wp_customize->add_section("footer", array(
+		'title' 		=> __("Footer", "mytheme"),
+		'priority' 		=> 22,
+		'description' 	=> __( 'Description Custom footer here' ),
+	));
+	
+	//Footer text
+	$wp_customize->add_setting("footer_text", array(
+		'default' 		=> '',
+		'transport' 	=> 'refresh',
+	));	
+	$wp_customize->add_control(new WP_Customize_Control($wp_customize,"footer_text",array(
+		'label' 		=> __("Footer text here", "mytheme"),
+		'section' 		=> 'footer',
+		'settings' 		=> 'footer_text',
+		'type' 			=> 'textarea',
+	)));
+
+    //Footer background
+	$wp_customize->add_setting("footer_background", array(
+		'transport' 	=> 'refresh',
+	));	
+	$wp_customize->add_control(new WP_Customize_Upload_Control($wp_customize,'footer_background',array(
+	 	'label'      	=> __('Footer background', 'mytheme'),
+	 	'section'    	=> 'footer',
+	 	'settings'   	=> 'footer_background',
+	)));
+    
+    //Footer pic
+	$wp_customize->add_setting("footer_image", array(
+		'transport' 	=> 'refresh',
+	));	
+	$wp_customize->add_control(new WP_Customize_Upload_Control($wp_customize,'footer_image',array(
+	 	'label'      	=> __('Footer image', 'mytheme'),
+	 	'section'    	=> 'footer',
+	 	'settings'   	=> 'footer_image',
+	)));
+}
+add_action("customize_register","mytheme");
 // excerpt length setting
-function my_excerpt_length($length){ return 30; } add_filter('excerpt_length', 'my_excerpt_length');
+function my_excerpt_length($length){ return 25; } add_filter('excerpt_length', 'my_excerpt_length');
 
 // Pagination
 function pagination_bar($my_query) {
@@ -86,7 +126,7 @@ function pagination_bar($my_query) {
             'current' => $current_page,
             'total' => $total_pages, 
         ];
-?>
+    ?>
         <nav class="pagination_bar">
             <div id="pag-cover">
                 <?php
@@ -112,6 +152,4 @@ function pagination_bar($my_query) {
         <?php
     }
 }
-
 ?>
-

@@ -36,9 +36,46 @@
             font-weight: bold;
         }
     }
+    .side-bar {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        h3 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            color: #555;
+        }
+        figure {
+            width: 100%;
+            height: auto;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+        }
+        h4 {
+            font-size: 18px;
+            color: #555;
+        }
+        .side-item {
+            margin-bottom: 18px;
+        }
+        a {
+            display: block;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
 }
 @media only screen and (max-width: 991px) { 
-    .col-lg-3 {
-        display: none;
+    #single-post {
+        .side-bar {
+            border-left: none;
+            .side-item {
+                margin-bottom: 30px;
+            }
+        }
     }
 }
