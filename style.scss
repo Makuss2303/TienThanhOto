@@ -9,6 +9,9 @@
  * Tags: starter theme, framework theme, two-columns, customize
  * Text-domain: thachpham
  */
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: Roboto, sans-serif;
 }

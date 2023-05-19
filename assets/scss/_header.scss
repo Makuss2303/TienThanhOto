@@ -73,6 +73,21 @@
     }
 }
 
+#backTop-btn {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 6;
+    color: white;
+    background-color: #dc3545;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 991px) {
     // PC Navbar disappear when in Mobile mode
 
@@ -309,4 +324,9 @@
     .header__logo figure img {
         width: 85%;
     }
+    #backTop-btn {
+        width: 40px;
+        height: 40px;
+    }
 }
+

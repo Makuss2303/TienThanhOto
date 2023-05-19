@@ -96,3 +96,8 @@
             </nav>
         </div>
     </header>
+    <!-- back-to-top -->
+    <a id="backTop-btn" onclick="window,topFunction()" title="Go to top">
+        <i class="fa-solid fa-angles-up"></i>
+    </a>
+    <!-- end back-to-top -->
